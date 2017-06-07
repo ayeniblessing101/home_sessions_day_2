@@ -1,11 +1,13 @@
-function Car(type, model, name){
-  
-  this.doors = 4;
-  this.type = type;
-  this.model = model;
-  this.name = name;
-  this.wheels = 4;
-  
+class Car{
+  constructor(type, model, name)
+  {
+    this.doors = 4;
+    this.type = type;
+    this.model = model;
+    this.name = name;
+    this.wheels = 4;
+  }
+
   if(name === undefined) {
     this.name = 'General';
   }
@@ -33,15 +35,12 @@ function Car(type, model, name){
     this.speed = '77 km/h'
   }
   
-  
-  
-  this.drive = function(pedal)
-  {
+
+  drive(number) {
     let man  = new Car('MAN', 'Truck', 'trailer');
     return man;
   }
 }
-
-
+  
 let car = new Car('MAN', 'Truck', 'trailer');
 console.log(car.wheels);
