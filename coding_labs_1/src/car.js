@@ -1,31 +1,47 @@
 function Car(type, model, name){
+  
+  this.doors = 4;
   this.type = type;
   this.model = model;
   this.name = name;
+  this.wheels = 4;
   
   if(name === undefined) {
-		this.name = 'General';
-	}
+    this.name = 'General';
+  }
   
-  if(this.name === 'Porshe' || this.name === 'Koenigsegg')
+  if(model === undefined) {
+    this.name = 'GM';
+  }
+  
+  if(type === "Porshe" || type === "Koenigsegg")
   {
-    this.door = 2;
+    this.doors = 2;
+  }
+  
+  if(name === "trailer")
+  {
+    this.wheels = 8;
+  }
+  
+  if(name === 'trailer')
+  {
+    this.speed = '0 km/h';
   }
   else
   {
-    this.door = 4;
+    this.speed = '77 km/h'
   }
   
-  this.drive = function() {
-    if(this.type === 'trailer')
-    {
-      this.speed = '0km/h';
-    }
-    else
-    {
-      this.speed = '250km/h';
-    }
-  };
+  
+  
+  this.drive = function(pedal)
+  {
+    let man  = new Car('MAN', 'Truck', 'trailer');
+    return man;
+  }
 }
 
-var car = Car('MAN', 'Truck', 'trailer');
+
+let car = new Car('MAN', 'Truck', 'trailer');
+console.log(car.wheels);
