@@ -1,45 +1,41 @@
 class Car{
-  constructor(type, model, name)
-  {
-    this.doors = 4;
-    this.type = type;
-    this.model = model;
-    this.name = name;
-    this.wheels = 4;
-    
-    if(name === undefined) {
-      this.name = 'General';
+    constructor(name, model, type){
+    if (name === undefined){
+    this.name ="General";
     }
-    
-    if(model === undefined) {
-      this.name = 'GM';
+    else{
+        this.name = name;
     }
-    
-    if(type === "Porshe" || type === "Koenigsegg")
-    {
-      this.doors = 2;
+    if (model === undefined){
+    this.model = "GM";
     }
-    
-    if(name === "trailer")
-    {
-      this.wheels = 8;
+    else{
+        this.model = model;
     }
-    
-    if(name === 'trailer')
-    {
-      this.speed = '0 km/h';
+    if (name === "Porshe" || name === "Koenigsegg"){
+        this.numOfDoors = 2;
     }
-    else
-    {
-      this.speed = '77 km/h'
+    else{
+        this.numOfDoors = 4;
+    }
+    if (type === "trailer"){
+        this.numOfWheels = 8;
+        this.isSaloon = false;
+        this.speed = "0km/h";
+        this.type = "trailer";
+    }
+    else{
+        this.numOfWheels = 4;
+        this.isSaloon = true;
     }
   }
-
-  drive(number) {
-    let man  = new Car('MAN', 'Truck', 'trailer');
-    return man;
-  }
+drive(gear){
+    if (this.type === "trailer"){
+        this.speed = 11 *gear + " " + "km/h";
+    }
+    else{
+        this.speed = 50 * gear + " " + "km/hr";
+    }
+    return this;
 }
-  
-let car = new Car('MAN', 'Truck', 'trailer');
-console.log(car.wheels);
+}
